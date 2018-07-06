@@ -1,16 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import EventList from "./components/EventList.js";
 
 import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
+const elements = [
+  {
+    title: "Go play with the boys"
+  },
+  {
+    title: "Visit sister"
+  }
+];
+console.log(elements);
 
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>The app I am!</h1>
+        <EventList />
+      </div>
+    );
+  }
+}
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
