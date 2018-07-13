@@ -1,28 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import EventList from "./components/EventList.js";
+import EventList from "./myComponents/EventList";
+import PropTypes from "prop-types";
 
 import "./styles.css";
 
-const elements = [
+const records = [
   {
+    id: 1,
     title: "Go play with the boys"
   },
   {
+    id: 2,
     title: "Visit sister"
+  },
+  {
+    id: 3,
+    title: "Code that shit"
   }
 ];
-console.log(elements);
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.records = props.records;
+  }
+
   render() {
     return (
       <div>
         <h1>The app I am!</h1>
-        <EventList />
+        <EventList records={this.records} />
       </div>
     );
   }
 }
+
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<App records={records} />, rootElement);
